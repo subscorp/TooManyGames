@@ -1,49 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TooManyGames</title>
-    <link rel="stylesheet" href="../static/styles.css">
-</head>
-
-<body>
-    <div id="background">
-        <header>
-            <nav class="nav">
-              <!---  <a id="nav-item1" href="index.html"><strong>TooManyGames</strong></a> -->
-             <!--   <a id="nav-item2" href="index2.html"><strong>About</strong></a> -->
-             <a id="nav-item1" href="/"><strong>TooManyGames</strong></a>
-             <a id="nav-item2" href="../static/index2.html"><strong>About</strong></a>
-            </nav>
-        </header>
-        <main>
-            <h2>Search by name</h2>
-            <form action="index3" id="first-form" method="POST">
-                <input id="search-name" placeholder="Pokemon Sword and Shield" name="chosen_game">
-                <br>
-                <button class="button" type="submit" name="submit_btn" value="by name">Submit</button>
-            </form>
-            <h2>OR</h2>
-            <h2>Search by filters</h2>
-            <form action="index3" id="second-form" method="POST">
-                <h3>OpenCritic</h3>
-                <span>Min: <input class="input" placeholder="75" name="min_openCritic"></span>
-                <span>Max: <input class="input" placeholder="85" name="max_openCritic"></span>
-                <h3>HowLongToBeat</h3>
-                <span>Min: <input class="input" placeholder="7" name="min_howLongToBeat"></span>
-                <span>Max: <input class="input" placeholder="14" name=max_howLongToBeat></span>
-                <br>
-                <button type="submit" class="button" name="submit_btn" value="by filters">Submit</button>
-            </form>
-        </main>
-        <div style=background-color:black;>
-            <footer>
-                <strong>Built Using</strong><br>OpenCritic API and HowLongToBeat API
-            </footer>
-        </div>
-    </div>
-</body>
-
-</html>
+{% extends "base.html" %}
+{% block content %}
+<main>
+    <h2>Search by name</h2>
+    <form action="index3" id="first-form" method="POST">
+        <input id="search-name" placeholder="Pokemon Sword and Shield" name="chosen_game">
+        <br>
+        <button class="button" type="submit" name="submit_btn" value="by name">Submit</button>
+    </form>
+    <h2>OR</h2>
+    <h2>Search by filters</h2>
+    <form action="index3" id="second-form" method="POST">
+        <h3>OpenCritic</h3>
+        <span>Min: <input class="input" placeholder="75" name="min_openCritic"></span>
+        <span>Max: <input class="input" placeholder="85" name="max_openCritic"></span>
+        <h3>HowLongToBeat</h3>
+        <span>Min: <input class="input" placeholder="7" name="min_howLongToBeat"></span>
+        <span>Max: <input class="input" placeholder="14" name=max_howLongToBeat></span>
+        <br>
+        <button type="submit" class="button" name="submit_btn" value="by filters">Submit</button>
+    </form>
+</main>
+<div style=background-color:black;>
+    <footer>
+        <strong>Built Using</strong><br>OpenCritic API and HowLongToBeat API
+    </footer>
+</div>
+{% endblock %}

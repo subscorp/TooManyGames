@@ -1,3 +1,10 @@
+html {
+    width: 99vw;
+    height: 100vh;   
+    background-color: #384062;
+    background-size: auto;
+}
+
 .nav {
     position: relative;
     width: auto;
@@ -24,14 +31,6 @@
     padding: 10px;
 }
 
-html {
-    
-    width: 99vw;
-    height: 100vh;   
-
-    background-color: #384062;
-    background-size: auto;
-}
 
 #announcement {
     position: relative;
@@ -53,6 +52,11 @@ h1 {
     font-size: 54px;
     text-align: left;
     color: white;
+}
+
+img {
+    width: 800px;
+    height: 800px;
 }
 
 #game-details {
@@ -96,7 +100,6 @@ article {
     padding: auto auto;
     margin: auto auto;
     justify-content: center;
-    
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
@@ -106,9 +109,4 @@ article {
 
 .underline {
     text-decoration: underline;
-}
-
-img {
-    width: 800px;
-    height: 800px;
 }
