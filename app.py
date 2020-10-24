@@ -7,13 +7,13 @@ def get_how_long_to_beat(input_name):
     results = HowLongToBeat(0).search(input_name)
     if results:
         max_similarity_game = results[0]
-        name = max_similarity_game.game_name
-        similarity = max_similarity_game.similarity          
         gameplay_main = convert_time_to_beat(max_similarity_game.gameplay_main)
         gameplay_main_extra = convert_time_to_beat(max_similarity_game.gameplay_main_extra)
         gameplay_completionist = convert_time_to_beat(max_similarity_game.gameplay_completionist)
         game_image_url = max_similarity_game.game_image_url
-    return name, similarity, gameplay_main, gameplay_main_extra, gameplay_completionist, game_image_url
+    else:
+        gameplay_main, gameplay_main_extra, gameplay_completionist, game_image_url =  -1, -1, -1, None
+    return gameplay_main, gameplay_main_extra, gameplay_completionist, game_image_url
 
 
 def get_title_details(title_name):
@@ -37,11 +37,14 @@ def get_title_details(title_name):
     trailer_title = r_json["trailers"][0]["title"]
     trailer_url = r_json["trailers"][0]["externalUrl"]
     trailer_url = "https://www.youtube.com/embed/" + trailer_url.split('?v=')[1]
-    _, _, gameplay_main, gameplay_main_extra, gameplay_completionist, game_image_url = get_how_long_to_beat(name)
+    gameplay_main, gameplay_main_extra, gameplay_completionist, game_image_url = get_how_long_to_beat(name)
 
     details = {"Name": name, "Developer": developer, "Release": firstReleaseDate,
     "Score": score, "Description": description, "TrailerTitle": trailer_title, "TrailerUrl": trailer_url,
     "MainTime": gameplay_main, "ExtraTime": gameplay_main_extra, "ComplitionTime": gameplay_completionist, "CoverImage": game_image_url}
+
+    if not game_image_url:
+        details["CoverImage"] = r_json["screenshots"][0]["fullRes"]
     details["Platforms"] = []
     for platform in platforms:
         details["Platforms"].append(platform["name"])
@@ -65,7 +68,7 @@ def search_by_filters(opencritic_range, how_long_to_beat_range):
         print(f'Name: {name}')
         print(f'Score: {score}')
         if score >= opencritic_min and score <= opencritic_max:
-            _, _, gameplay_main, _, _, _ = get_how_long_to_beat(name)
+            gameplay_main, _, _, _ = get_how_long_to_beat(name)
             print(f"Gameplay Main: {gameplay_main}")
             if gameplay_main >= how_long_to_beat_min and gameplay_main <= how_long_to_beat_max:
                 print("This is the best match!\n")
@@ -125,9 +128,11 @@ app = Flask(__name__)
 def first_page():
     return render_template('index.html')
 
+
 @app.route('/index2', methods=["GET"])
 def about_page():
     return render_template('index2.html')
+
 
 @app.route('/index3', methods=['POST'])
 def result_page():
