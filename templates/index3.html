@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/gamePageStyle.css">
+</head>
+
+<body>
+    <header>
+        <nav class="nav">
+            <a id="nav-item1" href="/">TooManyGames</a>
+            <a id="nav-item2" href="../static/index2.html">About</a>
+        </nav>
+    </header>
+    <h2 id="announcement">The best game for you at the moment is most likely...</h2>
+    <main id="game-details">
+        <h1>{{details.Name}}</h1>
+        <br>
+        <img src="{{details.CoverImage}}">
+
+        <div id="base-details">
+            <strong class="underline">Developer</strong><br>
+            {{details.Developer}}
+            <br>
+            <br>
+            <strong class="underline">Platforms</strong><br> 
+            {% for platform in details.Platforms %}
+            {{platform}}
+            <br>
+            {% endfor %}
+            <br>
+            <strong class="underline">Genres</strong><br>
+            {% for genre in details.Genres %}
+            {{genre}}
+            <br>
+            {% endfor %}
+            <br>
+            <strong class="underline">Release Date</strong><br>
+            {{details.Release}}
+            <br>
+            <br>
+            <strong class="underline">Score</strong><br>
+            {{details.Score}}
+            <br>
+            <br>
+            <strong class="underline">How Long To Beat</strong>
+            <br>
+            Gameplay Main: {{details.MainTime}}
+            <br>
+            Gameplay Main and Extra: {{details.ExtraTime}}
+            <br>
+            Gameplay Completionist: {{details.ComplitionTime}}
+            <br>
+        </div>
+    </main>
+    <br>
+    <article>
+       {{details.Description}}
+    </article>
+    <div id="trailer">
+        <h2 id="trailer-title">{{details.TrailerTitle}}</h2>
+        <iframe width="560" height="315" src="{{details.TrailerUrl}}" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+    </div>
+</body>
+
+</html>
