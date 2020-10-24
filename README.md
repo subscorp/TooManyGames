@@ -6,3 +6,6 @@ Or maybe you paid 60$ to play the game people won't shut up about, and realised 
 
 If you found yourself nodding your head while reading, this site could make your life a little bit easier.
 Here you can search for games that suite you both with their quality, and the time it takes to beat them. you can also search for any game you have in mind and enjoy the comfort of having all of this info and more in one single place for once :)
+
+you can check it out here:
+https://too-many-games.herokuapp.com/
