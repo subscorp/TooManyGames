@@ -125,6 +125,9 @@ app = Flask(__name__)
 def first_page():
     return render_template('index.html')
 
+@app.route('/index2', methods=["GET"])
+def about_page():
+    return render_template('index2.html')
 
 @app.route('/index3', methods=['POST'])
 def result_page():
