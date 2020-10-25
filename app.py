@@ -1,6 +1,6 @@
+from flask import Flask, render_template, request
 from howlongtobeatpy import HowLongToBeat
 import requests
-from flask import Flask, render_template, request
 
 
 def get_how_long_to_beat(input_name):
@@ -12,7 +12,7 @@ def get_how_long_to_beat(input_name):
         gameplay_completionist = convert_time_to_beat(max_similarity_game.gameplay_completionist)
         game_image_url = max_similarity_game.game_image_url
     else:
-        gameplay_main, gameplay_main_extra, gameplay_completionist, game_image_url =  -1, -1, -1, None
+        gameplay_main, gameplay_main_extra, gameplay_completionist, game_image_url = -1, -1, -1, None
     return gameplay_main, gameplay_main_extra, gameplay_completionist, game_image_url
 
 
@@ -110,12 +110,12 @@ def handle_bad_inputs(min_val, max_val):
     return min_val, max_val
 
 
-"""
-Credit for the following function:
-source: https://stackoverflow.com/questions/354038/how-do-i-check-if-a-string-is-a-number-float
-author profile: https://stackoverflow.com/users/355230/martineau
-"""
 def is_number(num):
+    """
+    Credit for this function:
+    source: https://stackoverflow.com/questions/354038/how-do-i-check-if-a-string-is-a-number-float
+    author profile: https://stackoverflow.com/users/355230/martineau
+    """
     try:
         int(num)
         return True
@@ -124,6 +124,8 @@ def is_number(num):
 
 
 app = Flask(__name__)
+
+
 @app.route('/', methods=["GET"])
 def first_page():
     return render_template('index.html')
