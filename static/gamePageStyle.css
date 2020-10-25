@@ -82,7 +82,7 @@ img {
     margin: 10px;
 }
 
-article {
+#description {
     position: relative;
     font-family: Roboto;
     font-style: normal;
@@ -97,7 +97,6 @@ article {
 #trailer {
     display: grid;
     grid-template-rows: 1fr 3fr;
-    padding: auto auto;
     margin: auto auto;
     justify-content: center;
     font-family: Roboto;
@@ -109,4 +108,8 @@ article {
 
 .underline {
     text-decoration: underline;
+}
+
+iframe {
+    border: none;
 }

@@ -19,7 +19,7 @@
     <main id="game-details">
         <h1>{{details.Name}}</h1>
         <br>
-        <img src="{{details.CoverImage}}">
+        <img src="{{details.CoverImage}}" alt="Game cover image">
 
         <div id="base-details">
             <strong class="underline">Developer</strong><br>
@@ -57,12 +57,12 @@
         </div>
     </main>
     <br>
-    <article>
+    <div id="description">
        {{details.Description}}
-    </article>
+    </div>
     <div id="trailer">
         <h2 id="trailer-title">{{details.TrailerTitle}}</h2>
-        <iframe width="560" height="315" src="{{details.TrailerUrl}}" frameborder="0"
+        <iframe width="560" height="315" src="{{details.TrailerUrl}}"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
         </iframe>
